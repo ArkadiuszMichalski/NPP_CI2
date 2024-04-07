@@ -1,3 +1,4 @@
+// CHANGE
 // This file is part of Notepad++ project
 // Copyright (C)2021 Don HO <don.h@free.fr>
 
