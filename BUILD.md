@@ -1,3 +1,5 @@
+#CHANGE
+
 # Building Notepad++
 
 ## Microsoft Visual Studio
