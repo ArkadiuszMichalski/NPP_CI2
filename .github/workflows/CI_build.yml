@@ -21,6 +21,7 @@ jobs:
         $allowMaster = $true
         $folders_onejob = "PowerEditor/(Test|(installer/(filesForTesting|functionList)))/"
         $files_nowork = "md|txt|log|ini"
+        $files_needwork = "CMakeFileList\.txt"
 
         $matrix_all = 'matrix={"build_configuration": ["Release", "Debug"], "build_platform": ["x64", "Win32", "ARM64"]}'
         $matrix_onejob = 'matrix={"build_configuration": ["Debug"], "build_platform": ["Win32"]}'
@@ -39,7 +40,7 @@ jobs:
 
         $commit_title = ($commit_message -split "[\r\n]+")[0]
         $files_modified = @(git diff --name-only HEAD~1)
-        $files_notmached = @($files_modified | Where-Object {$_ -notmatch "\.(xml|$files_nowork)$|$folders_onejob"})
+        $files_notmached = @($files_modified | Where-Object {$_ -notmatch "\.(xml|$files_nowork)$|$files_needwork|$folders_onejob"})
 
         if ($allowMaster -or !$isMaster) {
             if ($commit_title -match "\[force all\]") {
