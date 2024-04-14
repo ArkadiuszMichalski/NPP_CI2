@@ -3922,6 +3922,8 @@ LangType Notepad_plus::menuID2LangType(int cmdID)
             return L_GDSCRIPT;
         case IDM_LANG_HOLLYWOOD:
             return L_HOLLYWOOD;	    
+        case IDM_LANG_GOLANG:
+            return L_GOLANG;
         case IDM_LANG_USER:
             return L_USER;
 		default:
@@ -4400,7 +4402,7 @@ void Notepad_plus::showView(int whichOne)
 	}
 	_pMainWindow->display(true);
 
-	_mainWindowStatus |= (whichOne==MAIN_VIEW)?WindowMainActive:WindowSubActive;
+	_mainWindowStatus |= static_cast<UCHAR>((whichOne==MAIN_VIEW)?WindowMainActive:WindowSubActive);
 
 	//Send sizing info to make windows fit
 	::SendMessage(_pPublicInterface->getHSelf(), WM_SIZE, 0, 0);
@@ -4451,7 +4453,7 @@ void Notepad_plus::hideView(int whichOne)
 
 	switchEditViewTo(otherFromView(whichOne));
 	auto viewToDisable = static_cast<UCHAR>(whichOne == SUB_VIEW ? WindowSubActive : WindowMainActive);
-	_mainWindowStatus &= ~viewToDisable;
+	_mainWindowStatus &= static_cast<UCHAR>(~viewToDisable);
 }
 
 bool Notepad_plus::loadStyles()
@@ -4676,7 +4678,7 @@ void Notepad_plus::undockUserDlg()
 
     ::SendMessage(_pPublicInterface->getHSelf(), WM_SIZE, 0, 0);
 
-    _mainWindowStatus &= ~WindowUserActive;
+    _mainWindowStatus &= static_cast<UCHAR>(~WindowUserActive);
     (ScintillaEditView::getUserDefineDlg())->display();
 }
 
