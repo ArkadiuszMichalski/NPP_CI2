@@ -1,5 +1,5 @@
 # @file:<dictaolib-root>/CMakeLists.txt
-
+# CHANGE
 # TODO
 # - Move defs XX_INCLUDE_DIR, XX_LIBRARIES, XX_LIBRARY_DIRS to the subdirectories
 #   scripts. I could not find a way to export variables defined in a subscript
