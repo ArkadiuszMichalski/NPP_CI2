@@ -18,6 +18,22 @@
 #pragma once
 #include "NppDarkMode.h"
 
+#ifndef WM_DPICHANGED
+#define WM_DPICHANGED 0x02E0
+#endif
+
+#ifndef WM_DPICHANGED_BEFOREPARENT
+#define WM_DPICHANGED_BEFOREPARENT 0x02E2
+#endif
+
+#ifndef WM_DPICHANGED_AFTERPARENT
+#define WM_DPICHANGED_AFTERPARENT 0x02E3
+#endif
+
+#ifndef WM_GETDPISCALEDSIZE
+#define WM_GETDPISCALEDSIZE 0x02E4
+#endif
+
 class DPIManagerV2
 {
 public:
@@ -114,6 +130,8 @@ public:
 	static LOGFONT getDefaultGUIFontForDpi(HWND hWnd, FontType type = FontType::message) {
 		return getDefaultGUIFontForDpi(getDpiForWindow(hWnd), type);
 	}
+
+	static void sendMessageToChildControls(HWND hwndParent, UINT msg, WPARAM wParam, LPARAM lParam);
 
 private:
 	UINT _dpi = USER_DEFAULT_SCREEN_DPI;
