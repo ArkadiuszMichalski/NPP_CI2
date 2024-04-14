@@ -35,7 +35,7 @@ jobs:
           $commit_message = (git show -s --format=%B)
         }
         else {
-          $last_commit = @(Invoke-RestMethod ${{ github.event.pull_request._links.commits.href }})[0]  | Select-Object -Last 1
+          $last_commit = @(Invoke-RestMethod ${{ github.event.pull_request._links.commits.href }})[0] | Select-Object -Last 1
           $commit_message = $last_commit.commit.message
         }
 
