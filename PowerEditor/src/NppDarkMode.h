@@ -122,8 +122,7 @@ namespace NppDarkMode
 	DWORD getWindowsBuildNumber();
 
 	COLORREF invertLightness(COLORREF c);
-	COLORREF invertLightnessSofter(COLORREF c);
-	double calculatePerceivedLighness(COLORREF c);
+	double calculatePerceivedLightness(COLORREF c);
 
 	void setDarkTone(ColorTone colorToneChoice);
 
@@ -221,8 +220,6 @@ namespace NppDarkMode
 	void autoSubclassAndThemePluginDockWindow(HWND hwnd);
 	ULONG autoSubclassAndThemePlugin(HWND hwnd, ULONG dmFlags);
 	void autoSubclassAndThemeWindowNotify(HWND hwnd);
-
-	void sendMessageToChildControls(HWND hwndParent, UINT msg, WPARAM wParam, LPARAM lParam);
 
 	void setDarkTitleBar(HWND hwnd);
 	void setDarkExplorerTheme(HWND hwnd);
