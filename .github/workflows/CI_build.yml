@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         fetch-depth: ${{ github.event_name == 'pull_request' && 2 || 0 }}
     - name: Commit filtering
@@ -98,7 +98,7 @@ jobs:
 
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v2
@@ -191,7 +191,7 @@ jobs:
 
     # steps:
     # - name: Checkout repo
-      # uses: actions/checkout@v4
+      # uses: actions/checkout@v6
 
     # - name: Add msbuild to PATH
       # uses: microsoft/setup-msbuild@v2
@@ -222,7 +222,7 @@ jobs:
 
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v2
@@ -275,7 +275,7 @@ jobs:
 
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Modify resource.h N++ version to avoid confusion
       working-directory: PowerEditor\src\
